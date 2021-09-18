@@ -44,7 +44,5 @@ class FieldElement:
 
 
 if __name__ == '__main__':
-    a = FieldElement(3, 13)
-    b = FieldElement(1, 13)
-
-    print(a**3 == b)
+    for prime in [7, 11, 17, 31]:
+        print([pow(i, prime-1, prime) for i in range(1, prime)])
