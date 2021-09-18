@@ -32,12 +32,11 @@ class FieldElement:
         return __class__(num, self.prime)
 
 
-
 if __name__ == '__main__':
     a = FieldElement(7, 13)
     b = FieldElement(6, 12)
 
-    print(a == b)
-    print(a == a)
-    print(a != b)
-    print(a != a)
+    print((44 + 33) % 57)
+    print((9 - 29) % 57)
+    print((17 + 42 + 49) % 57)
+    print((52 - 30 - 38) % 57)
