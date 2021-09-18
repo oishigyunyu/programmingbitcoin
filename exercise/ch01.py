@@ -37,10 +37,13 @@ class FieldElement:
         num = (self.num * other.num) % self.prime
         return __class__(num, self.prime)
 
+    def __pow__(self, exponent):
+        num = (self.num ** exponent) % self.prime
+        return self.__class__(num, self.prime)
+
 
 if __name__ == '__main__':
     a = FieldElement(3, 13)
-    b = FieldElement(12, 13)
-    c = FieldElement(10, 13)
+    b = FieldElement(1, 13)
 
-    print(a*b==c)
+    print(a**3==b)
