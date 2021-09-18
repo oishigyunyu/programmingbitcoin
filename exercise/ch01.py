@@ -36,7 +36,13 @@ if __name__ == '__main__':
     a = FieldElement(7, 13)
     b = FieldElement(6, 12)
 
-    print((44 + 33) % 57)
-    print((9 - 29) % 57)
-    print((17 + 42 + 49) % 57)
-    print((52 - 30 - 38) % 57)
+    print((95*45*31)%97)
+    print((17*13*19*44)%97)
+    print((12**7)*(77**49)%97)
+
+    d = []
+    for i in [1,3,7,13,18]:
+        for j in range(19):
+            d.append((i * j) % 19)
+        print(d)
+        d = []
