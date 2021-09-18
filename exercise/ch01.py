@@ -31,18 +31,16 @@ class FieldElement:
         num = (self.num - other.num) % self.prime
         return __class__(num, self.prime)
 
+    def __mul__(self, other):
+        if self.prime != other.prime:
+            raise TypeError('Cannot add two numbers in differnt Fields.')
+        num = (self.num * other.num) % self.prime
+        return __class__(num, self.prime)
+
 
 if __name__ == '__main__':
-    a = FieldElement(7, 13)
-    b = FieldElement(6, 12)
+    a = FieldElement(3, 13)
+    b = FieldElement(12, 13)
+    c = FieldElement(10, 13)
 
-    print((95*45*31)%97)
-    print((17*13*19*44)%97)
-    print((12**7)*(77**49)%97)
-
-    d = []
-    for i in [1,3,7,13,18]:
-        for j in range(19):
-            d.append((i * j) % 19)
-        print(d)
-        d = []
+    print(a*b==c)
