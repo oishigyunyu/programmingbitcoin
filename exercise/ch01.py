@@ -1,5 +1,3 @@
-import typing as tp
-
 class FieldElement:
     def __init__(self, num: int, prime: int):
         if num >= prime or num < 0:
@@ -12,14 +10,26 @@ class FieldElement:
         return 'FieldElement_{}({})'.format(self.prime, self.num)
 
     def __eq__(self, other: any) -> bool:
-        if other == None:
+        if other is None:
             return False
         return self.num == other.num and self.prime == other.prime
 
     def __ne__(self, other: any) -> bool:
-        if other == None:
+        if other is None:
             return False
         return self.num != other.num and self.prime != other.prime
+
+    def __add__(self, other):
+        if self.prime != other.prime:
+            raise TypeError('Cannot add two numbers in differnt Fields.')
+        num = (self.num + other.num) % self.prime
+        return __class__(num, self.prime)
+
+    def __sub__(self, other):
+        if self.prime != other.prime:
+            raise TypeError('Cannot add two numbers in differnt Fields.')
+        num = (self.num - other.num) % self.prime
+        return __class__(num, self.prime)
 
 
 
@@ -27,7 +37,7 @@ if __name__ == '__main__':
     a = FieldElement(7, 13)
     b = FieldElement(6, 12)
 
-    print(a==b)
-    print(a==a)
-    print(a!=b)
-    print(a!=a)
+    print(a == b)
+    print(a == a)
+    print(a != b)
+    print(a != a)
