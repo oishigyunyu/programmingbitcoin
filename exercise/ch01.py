@@ -42,6 +42,12 @@ class FieldElement:
         num = pow(self.num, exponent, self.prime)
         return self.__class__(num, self.prime)
 
+    def __truedev__(self, other):
+        if self.prime != other.prime:
+            raise TypeError('Cannot add two numbers in differnt Fields.')
+        num = self.num * pow(other.num, self.prime - 2, self.prime) % self.prime
+        return self.__class__(num, self.prime)
+
 
 if __name__ == '__main__':
     prime = 31
