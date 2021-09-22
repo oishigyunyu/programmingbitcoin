@@ -39,7 +39,8 @@ class FieldElement:
 
     def __pow__(self, exponent):
         #  num = (self.num ** exponent) % self.prime
-        num = pow(self.num, exponent, self.prime)
+        n = exponent % (self.prime - 1)
+        num = pow(self.num, n, self.prime)
         return self.__class__(num, self.prime)
 
     def __truedev__(self, other):
