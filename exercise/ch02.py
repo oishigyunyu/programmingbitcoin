@@ -38,10 +38,10 @@ class Point:
 
 
 if __name__ == '__main__':
-    def on_curve(x, y):
-        return y**2 == x**3 + 5 * x + 7
-
-    print(on_curve(2,4))
-    print(on_curve(-1,-1))
-    print(on_curve(18,77))
-    print(on_curve(5,7))
+    a, b = 5, 7
+    x1, y1 = -1, -1
+    x2, y2 = -1, -1
+    s = (3 * x1**2 +a) / (2 * y1)
+    x3 = s**2 - 2 * x1
+    y3 = s * (x1 - x3) - y1
+    print(f'x3:{x3}, y3:{y3}')
