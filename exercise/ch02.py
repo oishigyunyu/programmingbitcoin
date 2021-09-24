@@ -42,6 +42,9 @@ class Point:
             y = s * (self.x - x) - self.y
             return self.__class__(x, y, self.a, self.b)
 
+        if self == other and self.y == 0 * self.x:
+            return self.__class__(None, None, self.a, self.b)
+
 
 if __name__ == '__main__':
     a, b = 5, 7
