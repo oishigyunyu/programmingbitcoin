@@ -4,6 +4,9 @@ class Point:
         self.b = b
         self.x = y
         self.y = y
+
+        if self.x is None and self.y is None:
+            return
         if self.y**2 != self.x**3 + a * x + b:
             raise ValueError('({}, {}) is not on the curve.'.format(x, y))
     
@@ -12,6 +15,15 @@ class Point:
 
     def __ne__(self, other):
         return self.x != other.x and self.y != other.y and self.a != other.a and self.b != other.b
+
+    def __add__(self, other):
+        if self.a != other.a or self.b != other.b:
+            raise ValueError('Points {}, {} are not on the same curve.'.format(self, other))
+        
+        if self.x is None:
+            return other
+        if other.x is None:
+            return self
 
 if __name__ == '__main__':
     def on_curve(x, y):
