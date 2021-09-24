@@ -34,7 +34,13 @@ class Point:
             s = (other.y - self.y) / (other.x - self.x)
             x = s**2 - self.x - other.x
             y = s * (self.x - x) - self.y
-            return __class__(x, y, self.a, self.b)
+            return self.__class__(x, y, self.a, self.b)
+        
+        if self == other:
+            s = (3 * self.x**2 + self.a) / (2 * self.y)
+            x = s**2 - 2 * self.x
+            y = s * (self.x - x) - self.y
+            return self.__class__(x, y, self.a, self.b)
 
 
 if __name__ == '__main__':
